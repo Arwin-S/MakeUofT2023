@@ -67,7 +67,7 @@ conv_drums_HRTF_time = real(ifft(conv_drums_HRTF_freq,nfft));
 %Auralized_signal = conv_vocal_HRTF_time + conv_bass_HRTF_time + ...
  %   conv_guitar_HRTF_time + conv_drums_HRTF_time;
 
-Auralized_signal = conv_vocal_HRTF_time;
+Auralized_signal = conv_drums_HRTF_time;
 
 output = Auralized_signal./max(abs(Auralized_signal(:)))*0.95; %One can also save separate files
 audiowrite('modified_audio_track.wav', output, fs);
