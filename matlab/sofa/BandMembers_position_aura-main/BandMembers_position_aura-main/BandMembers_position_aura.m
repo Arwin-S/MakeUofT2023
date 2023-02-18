@@ -8,7 +8,8 @@
 clear all; clc; close all;
 
 %% Start SOFA to deal with Head-related transfer functions
-% SOFAstart; %(uncomment if running for 1st time)
+addpath("C:\Personal\Code\makeuoft2023\SOFA Toolbox for Matlab and Octave 2.1.4\SOFAtoolbox")
+SOFAstart; %(uncomment if running for 1st time)
 
 %% Loading music tracks and Fabian's HRTF Database
 [bass, fs] = audioread('bass_30s.mp3');  
@@ -63,8 +64,11 @@ conv_drums_HRTF_freq = fft(drums,nfft) .* fft(squeeze(HRTF_drums),nfft);
 conv_drums_HRTF_time = real(ifft(conv_drums_HRTF_freq,nfft));
 
 %% Save audio file
-Auralized_signal = conv_vocal_HRTF_time + conv_bass_HRTF_time + ...
-    conv_guitar_HRTF_time + conv_drums_HRTF_time;
+%Auralized_signal = conv_vocal_HRTF_time + conv_bass_HRTF_time + ...
+ %   conv_guitar_HRTF_time + conv_drums_HRTF_time;
+
+Auralized_signal = conv_vocal_HRTF_time;
+
 output = Auralized_signal./max(abs(Auralized_signal(:)))*0.95; %One can also save separate files
 audiowrite('modified_audio_track.wav', output, fs);
 
