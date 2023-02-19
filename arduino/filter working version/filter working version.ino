@@ -1,6 +1,8 @@
 #include <hcsr04.h>
 #include <SharpDistSensor.h>
 #include "string.h"
+#include <SD.h>
+
 using namespace std; 
 
 //Pins for IR Sensors
@@ -135,12 +137,15 @@ void loop() {
     //     }
     // }
 
+    //File file;
+    
+
     String send = String(l_vol) + " " +String(r_vol);
     
     // Serial.print("US1: ");
     Serial.println(send);
-    Serial.write(13);
-    Serial.write(10);
+   // Serial.write(13);
+    //Serial.write(10);
     // Serial.print(" IR1: ");
     // Serial.print(l_ir);
     // Serial.print(" D: ");
