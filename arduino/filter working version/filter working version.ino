@@ -138,12 +138,26 @@ void loop() {
     // }
 
     //File file;
-    
 
-    String send = String(l_vol) + " " +String(r_vol);
+    String send = "n";
+    if (l_us < 1 && r_us < 1)
+    {
+        send =  "n";
+    }
+    else if (l_us > r_us)
+    {
+      send = "l";
+    }
+    else
+      send = "r";
+
+    //String send = String(l_vol) + " " +String(r_vol);
     
     // Serial.print("US1: ");
     Serial.println(send);
+    //Serial.println("L:" + String(l_us) + "R:" + String(r_us));
+    //Serial.println(l_us);
+    
    // Serial.write(13);
     //Serial.write(10);
     // Serial.print(" IR1: ");
