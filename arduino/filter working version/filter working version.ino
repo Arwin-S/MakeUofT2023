@@ -140,11 +140,11 @@ void loop() {
     //File file;
 
     String send = "n";
-    if (l_us < 1 && r_us < 1)
+    if (l_ir > 2 && r_ir > 2)
     {
         send =  "n";
     }
-    else if (l_us > r_us)
+    else if (l_ir > r_ir)
     {
       send = "l";
     }
@@ -155,7 +155,7 @@ void loop() {
     
     // Serial.print("US1: ");
     Serial.println(send);
-    //Serial.println("L:" + String(l_us) + "R:" + String(r_us));
+    Serial.println("L:" + String(l_ir) + "R:" + String(r_ir));
     //Serial.println(l_us);
     
    // Serial.write(13);
